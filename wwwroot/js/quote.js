@@ -4,6 +4,9 @@ $(document).ready(function () {
     emailValid = false
     toppingValid = false;
 
+    incomeValid = false;
+    sillyHatSpendValid = false;
+
     $("#firstName").keyup(function () {
         fNameValid = validateNameField("firstName", "firstNameError");
         checkShowFinance();
@@ -20,6 +23,23 @@ $(document).ready(function () {
         toppingValid = validateTopping();
         checkShowFinance();
     });
+    $("#income").keyup(function () {
+        incomeValid = validateCurrency("income", "incomeError", 0, 1000000);
+        checkEnableSubmit();
+    });
+    $("#sillyHatSpend").keyup(function () {
+        sillyHatSpendValid = validateCurrency("sillyHatSpend", "sillyHatSpendError", 1, 10000);
+        checkEnableSubmit();
+    });
+    $("#quoteForm").submit(function () {
+        fNameValid = validateNameField("firstName", "firstNameError");
+        lNameValid = validateNameField("lastName", "lastNameError");
+        emailValid = validateEmail();
+        toppingValid = validateTopping();
+        incomeValid = validateCurrency("income", "incomeError", 0, 1000000);
+        sillyHatSpendValid = validateCurrency("sillyHatSpend", "sillyHatSpendError", 1, 10000);
+        return checkEnableSubmit();
+    })
 
     function validateNameField(id, errorId) {
         let nameValue = $(`#${id}`).val().trim();
@@ -36,9 +56,7 @@ $(document).ready(function () {
     function validateEmail() {
         const simpleEmailRegex = /^.+@.+\..+$/g;
         let emailAddress = String($("#emailAddress").val()).toLowerCase().trim();
-        console.log(emailAddress);
         let emailValid = emailAddress.match(simpleEmailRegex);
-        console.log(emailValid);
         if (!emailValid) {
             $(`#emailAddressError`).show(100);
             $(`#emailAddress`).addClass("inputError")
@@ -64,9 +82,32 @@ $(document).ready(function () {
         return true;
     }
 
+    function validateCurrency(id, errorId, min, max) {
+        let stringVal = String($(`#${id}`).val());
+        let value = Number(stringVal)
+        if (stringVal == "" || value < min || value > max) {
+            $(`#${errorId}`).show(100);
+            $(`#${id}`).addClass("inputError")
+            return false;
+        }
+        $(`#${errorId}`).hide(100);
+        $(`#${id}`).removeClass("inputError")
+        return true;
+    }
+
     function checkShowFinance() {
         if (fNameValid && lNameValid && emailValid && toppingValid && $("#financialInformation").is(":hidden")) {
             $("#financialInformation").show(500);
         }
+        checkEnableSubmit();
+    }
+
+    function checkEnableSubmit() {
+        if (fNameValid && lNameValid && emailValid && toppingValid && incomeValid && sillyHatSpendValid) {
+            $("#submitButton").prop("disabled", false);
+            return true;
+        }
+        $("#submitButton").prop("disabled", true);
+        return false;
     }
 });

@@ -12,7 +12,7 @@
     <body>
         <div class="text-center">
             <h1 class="display-4">Get a quote</h1><br/>
-            <form>
+            <form id="quoteForm">
                 <fieldset id="personalInformation">
                     <h2 class="formSectionHeading">First, tell us about you.</h2>
                     <div class="formRow">
@@ -50,6 +50,9 @@
                         <label class="formRowLabel">Annual income (in Emeralds):</label>
                         <input class="formRowInput" type="number" min="1" step="any" id="income" name="income"/>
                     </div>
+                    <div class="formRowTight" style="display:none" id="incomeError">
+                        <small class="formErrorLabel id="incomeErrorLabel>Income must be a number between 0 and 1000000</small>
+                    </div>
                     <div class="formRow">
                         <label class="formRowLabel">Do you impulse buy?</label>
                         <select class="formRowInput" name="impulseBuys" id="impulseBuys">
@@ -61,8 +64,11 @@
                         <label class="formRowLabel">Monthly silly hat expenditure:</label>
                         <input class="formRowInput" type="number" min="1" step="any" id="sillyHatSpend" name="sillyHatSpend"/>
                     </div>
+                    <div class="formRowTight" style="display:none" id="sillyHatSpendError">
+                        <small class="formErrorLabel id="sillyHatSpendErrorLabel>Silly hat expenditure must be a number between 1 and 10000</small>
+                    </div>
                 </fieldset>
-                <input class="submitButton" type="submit" value="Submit">
+                <input class="submitButton" type="submit" value="Submit" id="submitButton" disabled>
             </form>
         </div>
     </body>
