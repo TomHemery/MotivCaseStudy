@@ -1,0 +1,27 @@
+form {
+	display: table;
+	margin: auto;
+}
+.formRow {
+	display: table-row;
+	padding: 5px;
+	width: 100%;
+}
+.formRowLabel {
+	display: table-cell;
+	text-align: left;
+	padding: 5px;
+	padding-right: 10px;
+}
+.formRowInput {
+	display: table-cell;
+}
+.formSectionHeading {
+	text-align: left;
+}
+.submitButton {
+	width: 100%;
+}
+fieldset {
+	padding-bottom: 20px;
+}
