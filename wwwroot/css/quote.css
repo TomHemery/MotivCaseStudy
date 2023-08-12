@@ -1,20 +1,40 @@
 form {
-	display: table;
+	display: flex;
+	flex-direction: column;
 	margin: auto;
+	width: 500px;
 }
 .formRow {
-	display: table-row;
+	display: flex;
+	flex-direction: row;
 	padding: 5px;
 	width: 100%;
 }
+.formRowTight {
+	display: flex;
+	flex-direction: row;
+	padding-left: 5px;
+	width: 100%;
+}
+.formErrorLabel {
+	width: 50%;
+	flex: 1;
+	text-align: left;
+	padding-top: 0px;
+	padding-left: 5px;
+	padding-bottom: 5px;
+	color: indianred;
+}
 .formRowLabel {
-	display: table-cell;
+	width: 50%;
+	flex: 1;
 	text-align: left;
 	padding: 5px;
-	padding-right: 10px;
 }
 .formRowInput {
-	display: table-cell;
+	width: 50%;
+	flex: 1;
+	padding: 5px;
 }
 .formSectionHeading {
 	text-align: left;
@@ -24,4 +44,7 @@ form {
 }
 fieldset {
 	padding-bottom: 20px;
+}
+.inputError {
+	border: 1px solid red
 }

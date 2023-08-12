@@ -7,6 +7,8 @@ namespace MotivWebApp.Pages
     {
         private readonly ILogger<QuotePersonalDetailsModel> _logger;
 
+        public bool ShowFinancialSection { get; private set; } = false;
+
         public QuotePersonalDetailsModel(ILogger<QuotePersonalDetailsModel> logger)
         {
             _logger = logger;
@@ -14,7 +16,7 @@ namespace MotivWebApp.Pages
 
         public void OnGet()
         {
-
+            
         }
     }
 }

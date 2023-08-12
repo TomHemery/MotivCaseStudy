@@ -6,42 +6,60 @@
 <html>
     <head>
         <link rel="stylesheet", href="css/quote.css"/>
+        <script src="lib/jquery/dist/jquery.min.js"></script>
+        <script src="js/quote.js" type="text/javascript"></script>
     </head>
     <body>
         <div class="text-center">
             <h1 class="display-4">Get a quote</h1><br/>
             <form>
-                <fieldset>
+                <fieldset id="personalInformation">
                     <h2 class="formSectionHeading">First, tell us about you.</h2>
                     <div class="formRow">
-                        <label class="formRowLabel">First Name:</label>
-                        <input class="formRowColumn" type="text" id="fname" name="fname"/>
+                        <label class="formRowLabel">First name:</label>
+                        <input class="formRowInput" type="text" id="firstName" name="firstName"/>
+                    </div>
+                    <div class="formRowTight" style="display:none" id="firstNameError">
+                        <small class="formErrorLabel id="firstNameErrorLabel>You must provide a first name</small>
                     </div>
                     <div class="formRow">
-                        <label class="formRowLabel">Last Name:</label>
-                        <input class="formRowColumn" type="text" id="lname" name="lname"/>
+                        <label class="formRowLabel">Last name:</label>
+                        <input class="formRowInput" type="text" id="lastName" name="lastName"/>
+                    </div>
+                    <div class="formRowTight" style="display:none" id="lastNameError">
+                        <small class="formErrorLabel id="lastNameErrorLabel>You must provide a last name</small>
                     </div>
                     <div class="formRow">
-                        <label class="formRowLabel">Favourite Pizza Topping:</label>
-                        <input class="formRowColumn" type="text" id="pname" name="pname"/>
+                        <label class="formRowLabel">Email address:</label>
+                        <input class="formRowInput" type="text" id="emailAddress" name="emailAddress"/>
+                    </div>
+                    <div class="formRowTight" style="display:none" id="emailAddressError">
+                        <small class="formErrorLabel id="emailAddressErrorLabel>You must provide a valid email</small>
+                    </div>
+                    <div class="formRow">
+                        <label class="formRowLabel">Favourite pizza topping:</label>
+                        <input class="formRowInput" type="text" id="topping" name="topping" onkeydown="return /[a-zA-Z]/i.test(event.key)"/>
+                    </div>
+                    <div class="formRowTight" style="display:none" id="toppingError">
+                        <small class="formErrorLabel id="toppingErrorLabel>Toppings must be at least 3 characters long, and must not be pineapple</small>
                     </div>
                 </fieldset>
-                <fieldset>
+                <fieldset id="financialInformation" style="display:none">
                     <h2 class="formSectionHeading">Now we need to get serious.</h2>
                     <div class="formRow">
-                        <label class="formRowLabel">Annual Income (in Emeralds):</label>
-                        <input class="formRowColumn" type="number" min="1" step="any" id="income" name="income"/>
+                        <label class="formRowLabel">Annual income (in Emeralds):</label>
+                        <input class="formRowInput" type="number" min="1" step="any" id="income" name="income"/>
                     </div>
                     <div class="formRow">
-                        <label class="formRowLabel">Do You Impulse Buy?</label>
-                        <select class="formRowColumn" name="impulseBuys" id="impulseBuys" style="width:100%;">
+                        <label class="formRowLabel">Do you impulse buy?</label>
+                        <select class="formRowInput" name="impulseBuys" id="impulseBuys">
                             <option value="yes">Yes</option>
                             <option value="no">No</option>
                         </select>
                     </div>
                     <div class="formRow">
-                        <label class="formRowLabel">Monthly Silly Hat Expenditure:</label>
-                        <input class="formRowColumn" type="number" min="1" step="any" id="sillyHatSpend" name="sillyHatSpend"/>
+                        <label class="formRowLabel">Monthly silly hat expenditure:</label>
+                        <input class="formRowInput" type="number" min="1" step="any" id="sillyHatSpend" name="sillyHatSpend"/>
                     </div>
                 </fieldset>
                 <input class="submitButton" type="submit" value="Submit">
