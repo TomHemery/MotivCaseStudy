@@ -7,27 +7,27 @@ $(document).ready(function () {
     incomeValid = false;
     sillyHatSpendValid = false;
 
-    $("#firstName").keyup(function () {
+    $("#firstName").on('input', function () {
         fNameValid = validateNameField("firstName", "firstNameError");
         checkShowFinance();
     });
-    $("#lastName").keyup(function () {
+    $("#lastName").on('input', function () {
         lNameValid = validateNameField("lastName", "lastNameError");
         checkShowFinance();
     });
-    $("#emailAddress").keyup(function () {
+    $("#emailAddress").on('input', function () {
         emailValid = validateEmail();
         checkShowFinance();
     });
-    $("#topping").keyup(function () {
+    $("#topping").on('input', function () {
         toppingValid = validateTopping();
         checkShowFinance();
     });
-    $("#income").keyup(function () {
+    $("#income").on('input', function () {
         incomeValid = validateCurrency("income", "incomeError", 0, 1000000);
         checkEnableSubmit();
     });
-    $("#sillyHatSpend").keyup(function () {
+    $("#sillyHatSpend").on('input', function () {
         sillyHatSpendValid = validateCurrency("sillyHatSpend", "sillyHatSpendError", 1, 10000);
         checkEnableSubmit();
     });

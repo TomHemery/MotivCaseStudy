@@ -1,5 +1,5 @@
 ﻿@page
-@model QuotePersonalDetailsModel
+@model QuoteFormModel
 @{
     ViewData["Title"] = "New quote";
 }
@@ -17,28 +17,28 @@
                     <h2 class="formSectionHeading">First, tell us about you.</h2>
                     <div class="formRow">
                         <label class="formRowLabel">First name:</label>
-                        <input class="formRowInput" type="text" id="firstName" name="firstName"/>
+                        <input asp-for="FirstName" class="formRowInput" type="text" id="firstName" name="firstName"/>
                     </div>
                     <div class="formRowTight" style="display:none" id="firstNameError">
-                        <small class="formErrorLabel id="firstNameErrorLabel>You must provide a first name</small>
+                        <small class="formErrorLabel id="firstNameErrorLabel>You must provide a last name</small>
                     </div>
                     <div class="formRow">
                         <label class="formRowLabel">Last name:</label>
-                        <input class="formRowInput" type="text" id="lastName" name="lastName"/>
+                        <input asp-for="LastName" class="formRowInput" type="text" id="lastName" name="lastName"/>
                     </div>
                     <div class="formRowTight" style="display:none" id="lastNameError">
                         <small class="formErrorLabel id="lastNameErrorLabel>You must provide a last name</small>
                     </div>
                     <div class="formRow">
                         <label class="formRowLabel">Email address:</label>
-                        <input class="formRowInput" type="text" id="emailAddress" name="emailAddress"/>
+                        <input asp-for="EmailAddress" class="formRowInput" type="text" id="emailAddress" name="emailAddress"/>
                     </div>
                     <div class="formRowTight" style="display:none" id="emailAddressError">
                         <small class="formErrorLabel id="emailAddressErrorLabel>You must provide a valid email</small>
                     </div>
                     <div class="formRow">
                         <label class="formRowLabel">Favourite pizza topping:</label>
-                        <input class="formRowInput" type="text" id="topping" name="topping" onkeydown="return /[a-zA-Z]/i.test(event.key)"/>
+                        <input asp-for="Topping" class="formRowInput" type="text" id="topping" name="topping" onkeydown="return /[a-zA-Z]/i.test(event.key)"/>
                     </div>
                     <div class="formRowTight" style="display:none" id="toppingError">
                         <small class="formErrorLabel id="toppingErrorLabel>Toppings must be at least 3 characters long, and must not be pineapple</small>
@@ -48,21 +48,21 @@
                     <h2 class="formSectionHeading">Now we need to get serious.</h2>
                     <div class="formRow">
                         <label class="formRowLabel">Annual income (in Emeralds):</label>
-                        <input class="formRowInput" type="number" min="1" step="any" id="income" name="income"/>
+                        <input asp-for="Income" class="formRowInput" type="number" min="1" step="any" id="income" name="income"/>
                     </div>
                     <div class="formRowTight" style="display:none" id="incomeError">
                         <small class="formErrorLabel id="incomeErrorLabel>Income must be a number between 0 and 1000000</small>
                     </div>
                     <div class="formRow">
                         <label class="formRowLabel">Do you impulse buy?</label>
-                        <select class="formRowInput" name="impulseBuys" id="impulseBuys">
+                        <select asp-for="ImpulseBuys" class="formRowInput" name="impulseBuys" id="impulseBuys">
                             <option value="yes">Yes</option>
                             <option value="no">No</option>
                         </select>
                     </div>
                     <div class="formRow">
                         <label class="formRowLabel">Monthly silly hat expenditure:</label>
-                        <input class="formRowInput" type="number" min="1" step="any" id="sillyHatSpend" name="sillyHatSpend"/>
+                        <input asp-for="SillyHatSpend" class="formRowInput" type="number" min="1" step="any" id="sillyHatSpend" name="sillyHatSpend"/>
                     </div>
                     <div class="formRowTight" style="display:none" id="sillyHatSpendError">
                         <small class="formErrorLabel id="sillyHatSpendErrorLabel>Silly hat expenditure must be a number between 1 and 10000</small>
@@ -73,3 +73,8 @@
         </div>
     </body>
 </html>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
