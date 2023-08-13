@@ -5,8 +5,8 @@ $(document).ready(function () {
     emailValid = false
     toppingValid = false;
 
-    incomeValid = false;
-    sillyHatSpendValid = false;
+    incomeValid = true;
+    sillyHatSpendValid = true;
 
     $("#firstName").on('input', function () {
         fNameValid = validateNameField("firstName", "firstNameError");
@@ -25,7 +25,7 @@ $(document).ready(function () {
         checkShowFinance();
     });
     $("#income").on('input', function () {
-        incomeValid = validateCurrency("income", "incomeError", 0, 1000000);
+        incomeValid = validateCurrency("income", "incomeError", 1, 1000000);
         checkEnableSubmit();
     });
     $("#sillyHatSpend").on('input', function () {

@@ -22,14 +22,14 @@ namespace MotivWebApp.Pages
         public string Topping { get; set; } = string.Empty;
 
         [Required]
-        [Range(0, 1000000)]
+        [Range(1, 1000000)]
         [DataType(DataType.Currency)]
-        public float Income { get; set; } = 0;
+        public float Income { get; set; } = 1;
         [Required]
         public bool ImpulseBuys { get; set; } = false;
         [Required]
         [Range(1, 10000)]
         [DataType(DataType.Currency)]
-        public float SillyHatSpend { get; set; } = 0;
+        public float SillyHatSpend { get; set; } = 1;
     }
 }

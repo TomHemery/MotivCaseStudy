@@ -48,7 +48,7 @@
                 <h2 class="formSectionHeading">Now we need to get serious.</h2>
                 <div class="formRow">
                     <label class="formRowLabel">Annual income (in Emeralds):</label>
-                    <input asp-for="Income" class="formRowInput" type="number" min="1" step="any" id="income" name="income"/>
+                    <input asp-for="Income" class="formRowInput" type="number" min="1" step="any" id="income" name="income" value="1"/>
                 </div>
                 <div class="formRowTight" style="display:none" id="incomeError">
                     <small class="formErrorLabel id="incomeErrorLabel>Income must be a number between 0 and 1000000</small>
@@ -56,13 +56,13 @@
                 <div class="formRow">
                     <label class="formRowLabel">Do you impulse buy?</label>
                     <select asp-for="ImpulseBuys" class="formRowInput" name="impulseBuys" id="impulseBuys">
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
+                        <option value="True">Yes</option>
+                        <option value="False">No</option>
                     </select>
                 </div>
                 <div class="formRow">
                     <label class="formRowLabel">Monthly silly hat expenditure:</label>
-                    <input asp-for="SillyHatSpend" class="formRowInput" type="number" min="1" step="any" id="sillyHatSpend" name="sillyHatSpend"/>
+                    <input asp-for="SillyHatSpend" class="formRowInput" type="number" min="1" step="any" id="sillyHatSpend" name="sillyHatSpend" value="1"/>
                 </div>
                 <div class="formRowTight" style="display:none" id="sillyHatSpendError">
                     <small class="formErrorLabel id="sillyHatSpendErrorLabel>Silly hat expenditure must be a number between 1 and 10000</small>

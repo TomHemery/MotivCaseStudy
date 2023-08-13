@@ -14,7 +14,7 @@
             <div class="resultSection">
                 <h2>Let's talk about you</h2>
                 <div class="@(Model.IncomeExceedsSpend ? "goodResult" : "badResult")">
-                    <span class="resultMessage">Your monthly income <b>(@((Model.Income / 12).ToString("0.00")))</b> @(Model.IncomeExceedsSpend ? "exceeds" : "does not exceed") your silly hat expenditure <b>(@(Model.SillyHatSpend) emeralds) @(Model.IncomeExceedsSpend ? "✅" : "❌")</b></span>
+                    <span class="resultMessage">Your monthly income <b>(@((Model.Income / 12).ToString("0.00")) emeralds)</b> @(Model.IncomeExceedsSpend ? "exceeds" : "does not exceed") your silly hat expenditure <b>(@(Model.SillyHatSpend) emeralds) @(Model.IncomeExceedsSpend ? "✅" : "❌")</b></span>
                 </div>
                 <div class="@(Model.PizzaToppingGood ? "goodResult" : "badResult")">
                     <span class="resultMessage">Your pizza topping is @(Model.PizzaToppingGood ? "in" : "not in") our list of objectively good toppings @(Model.PizzaToppingGood ? "✅" : "❌")</span>
