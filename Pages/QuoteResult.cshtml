@@ -1,0 +1,57 @@
+﻿@page
+@using MotivWebApp.Source.Products;
+@model QuoteResultModel
+@{
+    ViewData["Title"] = "Quote Result";
+}
+<head>
+    <link rel="stylesheet", href="css/quoteResult.css"/>
+</head>
+<body>
+    <div class="text-center">
+        <h1 class="display-4">Here's what we can do for you, @(Model.FirstName).</h1><br/>
+        <div class="resultBox">
+            <div class="resultSection">
+                <h2>Let's talk about you</h2>
+                <div class="@(Model.IncomeExceedsSpend ? "goodResult" : "badResult")">
+                    <span class="resultMessage">Your monthly income <b>(@((Model.Income / 12).ToString("0.00")))</b> @(Model.IncomeExceedsSpend ? "exceeds" : "does not exceed") your silly hat expenditure <b>(@(Model.SillyHatSpend) emeralds) @(Model.IncomeExceedsSpend ? "✅" : "❌")</b></span>
+                </div>
+                <div class="@(Model.PizzaToppingGood ? "goodResult" : "badResult")">
+                    <span class="resultMessage">Your pizza topping is @(Model.PizzaToppingGood ? "in" : "not in") our list of objectively good toppings @(Model.PizzaToppingGood ? "✅" : "❌")</span>
+                </div>
+                <div class="@(Model.IncomeMultipleOfThree ? "goodResult" : "badResult")">
+                    <span class="resultMessage">Your income of <b>(@(Model.Income) emeralds)</b> @(Model.IncomeMultipleOfThree ? "is" : "is not") a multiple of 3 @(Model.IncomeMultipleOfThree ? "✅" : "❌")</span>
+                </div>
+                <div class="@(Model.ImpulseBuys ? "badResult" : "goodResult")">
+                    <span class="resultMessage">You <b>@(Model.ImpulseBuys ? "do" : "do not")</b> self identify as an impulse purchaser @(!Model.ImpulseBuys ? "✅" : "❌")</span>
+                </div>
+            </div>
+            <div class="resultSection">
+                <h2>Your score is...</h2>
+                <div class="scoreBox">
+                    <span>@Model.Score / @QuoteResultModel.MAX_SCORE</span>
+                </div>
+            </div>
+            @if (Model.ValidFinanceProducts == null || Model.ValidFinanceProducts.Count == 0) {
+                <div class="resultSeciond">
+                    <h2>Bad news.</h2>
+                    <span>We can't offer you any finance options today.</span>
+                </div>
+            }
+        </div>
+        @if (Model.ValidFinanceProducts != null && Model.ValidFinanceProducts.Count > 0) {
+        <div class="resultSection">
+            <h2>Based on your score we can offer you:</h2>
+            <div class="productContainer">
+            @foreach (FinanceProduct product in Model.ValidFinanceProducts) {
+                <div class ="product">
+                    <h3>@product.name</h3>    
+                    <p>@product.description</p>
+                    <small>@(product.premium) emeralds / fathom</small>
+                </div>
+            }
+            </div>
+        </div>
+        }
+    </div>
+</body>

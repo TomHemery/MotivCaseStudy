@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
+using System.Diagnostics.Eventing.Reader;
 
 namespace MotivWebApp.Pages
 {
@@ -31,15 +31,5 @@ namespace MotivWebApp.Pages
         [Range(1, 10000)]
         [DataType(DataType.Currency)]
         public float SillyHatSpend { get; set; } = 0;
-
-        public QuoteFormModel()
-        {
-            
-        }
-
-        public void OnGet()
-        {
-            
-        }
     }
 }

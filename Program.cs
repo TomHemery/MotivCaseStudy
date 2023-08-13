@@ -1,7 +1,10 @@
+using MotivWebApp.Source.Products;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddScoped<ProductRegistry>();
 
 var app = builder.Build();
 

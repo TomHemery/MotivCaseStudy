@@ -1,0 +1,48 @@
+﻿.resultBox {
+	display: flex;
+	flex-direction: column;
+	margin: auto;
+	width: 500px;
+}
+
+.productContainer {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+}
+
+.product {
+	background-color: lightgray;
+	width: 200px;
+	height: 300px;
+	padding: 2px;
+	border: 1px solid gray;
+	margin: 5px;
+}
+
+.resultSection {
+	margin-bottom: 20px;
+}
+
+.goodResult {
+	border-left: 2px solid green;
+	background-color: lightgreen;
+	margin: 5px;
+}
+
+.badResult {
+	border-left: 2px solid red;
+	background-color: lightpink;
+	margin: 5px;
+}
+
+.resultMessage {
+	text-align: left;
+}
+
+.scoreBox {
+	font-weight: bold;
+	font-size: large;
+}
