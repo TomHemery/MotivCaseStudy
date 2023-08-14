@@ -50,12 +50,12 @@ namespace MotivWebApp.Pages
         public int Score { get; protected set; } = 0;
         public const int MAX_SCORE = 4;
 
-        protected ProductRegistry productRegistry;
+        protected ProductRegistry _productRegistry;
         public List<FinanceProduct>? ValidFinanceProducts { get; protected set; }
 
         public QuoteResultModel(ProductRegistry productRegistry)
         {
-            this.productRegistry = productRegistry;
+            _productRegistry = productRegistry;
         }
 
         public IActionResult OnGet()
@@ -72,7 +72,7 @@ namespace MotivWebApp.Pages
             PizzaToppingGood = goodToppings.Contains(Topping.ToLower());
             IncomeMultipleOfThree = Income % 3 == 0;
             Score = (IncomeExceedsSpend ? 1 : 0) + (PizzaToppingGood ? 1 : 0) + (IncomeMultipleOfThree ? 1 : 0) + (ImpulseBuys ? 0 : 1);
-            ValidFinanceProducts = productRegistry.GetApprovedProducts(Score);
+            ValidFinanceProducts = _productRegistry.GetApprovedProducts(Score);
             return Page();
         }
     }

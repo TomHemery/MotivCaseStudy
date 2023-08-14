@@ -1,6 +1,6 @@
 ﻿namespace MotivWebApp.Source.Products
 {
-    public struct FinanceProduct
+    public readonly struct FinanceProduct
     {
         public readonly string name;
         public readonly string description;
