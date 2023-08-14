@@ -1,0 +1,9 @@
+﻿.options {
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+}
+
+.optionButton {
+	margin: 10px;
+}
