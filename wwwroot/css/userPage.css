@@ -1,0 +1,30 @@
+﻿.left {
+	flex: 25;
+}
+
+.right {
+	flex: 75;
+}
+
+.column {
+	margin: 5px;
+	padding: 10px;
+	border: 2px solid grey;
+	border-radius: 10px;
+}
+
+.userContainer {
+	display: flex;
+}
+
+.profileImg {
+	display: block;
+	margin: auto;
+	border-radius: 50%;
+	padding: 5px;
+}
+
+.border {
+	border: 2px solid lightgrey;
+	margin: 5px;
+}

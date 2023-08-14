@@ -44,7 +44,7 @@
             <h2>Based on your score we can offer you:</h2>
             <div class="productContainer">
             @foreach (FinanceProduct product in Model.ValidFinanceProducts) {
-                <a href="@product.url">
+                <a class="productLink" href="@product.url">
                     <div class ="product">
                         <h3>@product.name</h3>    
                         <p>@product.description</p>
