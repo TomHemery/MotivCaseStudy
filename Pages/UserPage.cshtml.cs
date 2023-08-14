@@ -8,11 +8,13 @@ namespace MotivWebApp.Pages
     public class UserPageModel : PageModel
     {
         
-        private readonly ProductRegistry productRegistry;
+        private readonly ProductRegistry _productRegistry;
+        private readonly string _userApiUrl;
 
-        public UserPageModel(ProductRegistry productRegistry) 
+        public UserPageModel(ProductRegistry productRegistry, IConfiguration appSettings) 
         {
-            this.productRegistry = productRegistry;
+            _productRegistry = productRegistry;
+            _userApiUrl = appSettings.GetValue<string>("UserApiUrl");
         }
 
         public User? CurrentUser { get; private set; } = null;
@@ -21,10 +23,10 @@ namespace MotivWebApp.Pages
         {
             if (CurrentUser == null) {
                 var httpClient = new HttpClient();
-                HttpResponseMessage response = await httpClient.GetAsync("https://randomuser.me/api/");
+                HttpResponseMessage response = await httpClient.GetAsync(_userApiUrl);
                 dynamic? jsonData = JsonConvert.DeserializeObject(await response.Content.ReadAsStringAsync());
                 if (jsonData != null) {
-                    CurrentUser = new User(jsonData.results[0], productRegistry.GetRandomProduct());
+                    CurrentUser = new User(jsonData.results[0], _productRegistry.GetRandomProduct());
                 }
             }
         }
