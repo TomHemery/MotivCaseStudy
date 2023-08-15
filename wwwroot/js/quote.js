@@ -1,4 +1,4 @@
-// Validation in 3 places doesn't feel good but I wanted immediate validation, there must be a better way to de-dupe this.
+// Validation in 2 places doesn't feel good but I wanted immediate validation, there must be a better way to de-dupe this.
 $(document).ready(function () {
     fNameValid = false;
     lNameValid = false;
