@@ -1,4 +1,6 @@
-﻿namespace MotivWebApp.Source.Products
+﻿using MotivWebApp.Models;
+
+namespace MotivWebApp.Source.Products
 {
     public interface IProductRegistry
     {

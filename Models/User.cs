@@ -1,6 +1,4 @@
-﻿using MotivWebApp.Source.Products;
-
-namespace MotivWebApp.Models
+﻿namespace MotivWebApp.Models
 {
     public class User
     {

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using MotivWebApp.Models;
 
 namespace MotivWebApp.Source.Products
 {

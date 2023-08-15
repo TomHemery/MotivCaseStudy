@@ -1,4 +1,5 @@
 ﻿@page
+@using MotivWebApp.Models;
 @using MotivWebApp.Source.Products;
 @model QuoteResultModel
 @{
@@ -45,6 +46,7 @@
                 <a class="productLink" href="@product.url">
                     <div class ="product">
                         <h3>@product.name</h3>    
+                        <div class="border"></div>
                         <p>@product.description</p>
                         <small>@(product.premium) emeralds / fathom</small>
                     </div>

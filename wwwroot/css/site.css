@@ -21,8 +21,9 @@ body {
     background-color: lightgray;
     width: 200px;
     height: 300px;
-    padding: 2px;
+    padding: 5px;
     border: 1px solid gray;
+    border-radius: 10px;
     margin: 5px;
 }
 
