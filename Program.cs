@@ -1,4 +1,4 @@
-using MotivWebApp.Source.Products;
+using MotivWebApp.Services.Products;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using MotivWebApp.Data;

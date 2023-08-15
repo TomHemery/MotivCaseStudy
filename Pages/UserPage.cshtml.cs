@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using MotivWebApp.Models;
-using MotivWebApp.Source.Products;
+using MotivWebApp.Services.Products;
 using Newtonsoft.Json;
 
 namespace MotivWebApp.Pages

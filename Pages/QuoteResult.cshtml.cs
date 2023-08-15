@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using MotivWebApp.Models;
-using MotivWebApp.Source.Products;
+using MotivWebApp.Services.Products;
 using System.ComponentModel.DataAnnotations;
 
 namespace MotivWebApp.Pages

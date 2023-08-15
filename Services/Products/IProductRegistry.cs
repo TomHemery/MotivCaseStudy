@@ -1,6 +1,6 @@
 ﻿using MotivWebApp.Models;
 
-namespace MotivWebApp.Source.Products
+namespace MotivWebApp.Services.Products
 {
     public interface IProductRegistry
     {
