@@ -6,22 +6,22 @@
 }
 <body>
     <div class="text-center">
-        <h1 class="display-4">Here's what we can do for you, @(Model.FirstName).</h1>
+        <h1 class="display-4">Here's what we can do for you, @(Model.QuoteRequest?.FirstName).</h1>
         <div class="border"></div>
         <div class="resultBox">
             <div class="resultSection">
                 <h2>Let's talk about you</h2>
                 <div class="@(Model.IncomeExceedsSpend ? "goodResult" : "badResult")">
-                    <span class="resultMessage">Your monthly income <b>(@((Model.Income / 12).ToString("0.00")) emeralds)</b> @(Model.IncomeExceedsSpend ? "exceeds" : "does not exceed") your silly hat expenditure <b>(@(Model.SillyHatSpend) emeralds) @(Model.IncomeExceedsSpend ? "✅" : "❌")</b></span>
+                    <span class="resultMessage">Your monthly income <b>(@((Model.QuoteRequest?.Income ?? 0 / 12).ToString("0.00")) emeralds)</b> @(Model.IncomeExceedsSpend ? "exceeds" : "does not exceed") your silly hat expenditure <b>(@(Model.QuoteRequest?.SillyHatSpend) emeralds) @(Model.IncomeExceedsSpend ? "✅" : "❌")</b></span>
                 </div>
                 <div class="@(Model.PizzaToppingGood ? "goodResult" : "badResult")">
                     <span class="resultMessage">Your pizza topping is @(Model.PizzaToppingGood ? "in" : "not in") our list of objectively good toppings @(Model.PizzaToppingGood ? "✅" : "❌")</span>
                 </div>
                 <div class="@(Model.IncomeMultipleOfThree ? "goodResult" : "badResult")">
-                    <span class="resultMessage">Your income of <b>(@(Model.Income) emeralds)</b> @(Model.IncomeMultipleOfThree ? "is" : "is not") a multiple of 3 @(Model.IncomeMultipleOfThree ? "✅" : "❌")</span>
+                    <span class="resultMessage">Your income of <b>(@(Model.QuoteRequest?.Income) emeralds)</b> @(Model.IncomeMultipleOfThree ? "is" : "is not") a multiple of 3 @(Model.IncomeMultipleOfThree ? "✅" : "❌")</span>
                 </div>
-                <div class="@(Model.ImpulseBuys ? "badResult" : "goodResult")">
-                    <span class="resultMessage">You <b>@(Model.ImpulseBuys ? "do" : "do not")</b> self identify as an impulse purchaser @(!Model.ImpulseBuys ? "✅" : "❌")</span>
+                <div class="@(Model.QuoteRequest?.ImpulseBuys ?? false ? "badResult" : "goodResult")">
+                    <span class="resultMessage">You <b>@(Model.QuoteRequest?.ImpulseBuys ?? false ? "do" : "do not")</b> self identify as an impulse purchaser @(!Model.QuoteRequest?.ImpulseBuys ?? false ? "✅" : "❌")</span>
                 </div>
             </div>
             <div class="resultSection">
