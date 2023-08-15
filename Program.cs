@@ -1,9 +1,15 @@
 using MotivWebApp.Source.Products;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using MotivWebApp.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<MotivWebAppContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("MotivWebAppContext") ?? throw new InvalidOperationException("Connection string 'MotivWebAppContext' not found.")));
+// I bet there's a slicker way to add custom services to the container.
 builder.Services.AddScoped<ProductRegistry>();
 
 var app = builder.Build();

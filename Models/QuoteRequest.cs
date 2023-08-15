@@ -5,6 +5,8 @@ namespace MotivWebApp.Models
 {
     public class QuoteRequest
     {
+        public int Id { get; set; }
+
         [Required]
         [BindProperty]
         [StringLength(100, MinimumLength = 1)]
