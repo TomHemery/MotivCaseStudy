@@ -9,7 +9,6 @@
     <div class="userContainer">
         <div class="left column">
             <img class="profileImg" src="@Model.CurrentUser?.LargePictureURL"/>
-            <div class="border"></div>
             <h2>@Model.CurrentUser?.FirstName @Model.CurrentUser?.LastName</h2>
             <small>@Model.CurrentUser?.Username</small><br/>
             <small>@Model.CurrentUser?.Email</small><br/><br/>
@@ -17,10 +16,9 @@
         </div>
         <div class="right column text-center">
             <h2>Your plan:</h2>
-            <div class="border"></div>
             <div class="productContainer">
                 <a class="productLink" href="@Model.CurrentUser?.FinancePlan.url">
-                    <div class ="product">
+                    <div class ="product wide">
                         <h3>@Model.CurrentUser?.FinancePlan.name</h3>    
                         <div class="border"></div>
                         <p>@Model.CurrentUser?.FinancePlan.description</p>

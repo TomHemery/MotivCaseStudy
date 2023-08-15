@@ -1,16 +1,15 @@
 ﻿.left {
 	flex: 25;
+	border-right: 2px solid lightgrey;
 }
 
 .right {
-	flex: 75;
+	flex: 75
 }
 
 .column {
 	margin: 5px;
 	padding: 10px;
-	border: 2px solid grey;
-	border-radius: 10px;
 }
 
 .userContainer {
